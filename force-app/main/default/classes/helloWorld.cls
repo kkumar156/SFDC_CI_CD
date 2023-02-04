@@ -1,5 +1,5 @@
 public with sharing class helloWorld {
-    public static void printHelloWorld() {
+    public static String printHelloWorld() {
         return 'Hello World';
     }
 }
