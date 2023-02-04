@@ -3,7 +3,7 @@ public class helloWorld_Test {
 
     @isTest
     public static void helloWorldTest(){
-        helloWorld a = new helloWorld();
-        a.printHelloWorld();
+        String helloWorld = helloWorld.printHelloWorld();
+        System.assertEquals('Hello World',helloWorld, 'Assertion has failed.');
     }
 }
