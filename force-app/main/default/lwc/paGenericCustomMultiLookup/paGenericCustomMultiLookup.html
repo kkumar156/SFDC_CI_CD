@@ -1,0 +1,27 @@
+<template>
+    <lightning-card>
+        <div class="slds-var-m-around_medium">
+            <lightning-input type="text" label={label} value={searchTerm} onchange={handleSearchTermChange}></lightning-input>
+            <template if:true={showSearchResults}>
+                <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid" role="listbox">
+                    <template for:each={searchResults} for:item="result">
+                        <li key={result.Id} role="presentation" class="slds-listbox__item" onclick={handleResultSelection}>
+                            <div class="slds-media slds-listbox__option slds-listbox__option_entity" role="option">
+                                <span class="slds-media__body">
+                                    <span class="slds-listbox__option-text">{result.Name}</span>
+                                </span>
+                            </div>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <div if:true={selectedRecords}>
+                <ul class="slds-listbox slds-listbox_horizontal">
+                    <template for:each={selectedRecords} for:item="record">
+                        <li key={record.Id} class="slds-listbox__item">{record.Name} <lightning-icon icon-name="utility:close" onclick={handleRemoveRecord} data-id={record.Id} alternative-text="Remove"></lightning-icon></li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </lightning-card>
+</template>
